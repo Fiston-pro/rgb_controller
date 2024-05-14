@@ -3,12 +3,12 @@
 #include <ESPAsyncWebServer.h>
 
 #define BAUDRATE 115200
-#define LED_R1 12
-#define LED_G1 13
-#define LED_B1 14
-#define LED_R2 4
-#define LED_G2 5
-#define LED_B2 15
+#define LED_R1 1
+#define LED_G1 2
+#define LED_B1 3
+#define LED_R2 5
+#define LED_G2 6
+#define LED_B2 7
 
 const char* ssid = "Laboratorium-IoT";
 const char* pass = "IoTL@bolatorium";

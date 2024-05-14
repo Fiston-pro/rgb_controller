@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import requests
 
-ESP8266_IP = "ESP8266_IP_ADDRESS"
+ESP8266_IP = "10.23.81.115"
 
 def send_rgb_request():
     red1 = red_scale1.get()

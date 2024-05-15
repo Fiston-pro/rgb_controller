@@ -43,13 +43,15 @@ void setup() {
   });
 
   server.on("/rgb", HTTP_POST, [](AsyncWebServerRequest *request) {
-    if (request->hasParam("red1")) {
-      int red1 = request->getParam("red1")->value().toInt();
-      int green1 = request->getParam("green1")->value().toInt();
-      int blue1 = request->getParam("blue1")->value().toInt();
-      int red2 = request->getParam("red2")->value().toInt();
-      int green2 = request->getParam("green2")->value().toInt();
-      int blue2 = request->getParam("blue2")->value().toInt();
+    if (request->hasParam("red1", true) && request->hasParam("green1", true) && request->hasParam("blue1", true) &&
+        request->hasParam("red2", true) && request->hasParam("green2", true) && request->hasParam("blue2", true)) {
+      Serial.println("Rediet in");
+      int red1 = request->getParam("red1", true)->value().toInt();
+      int green1 = request->getParam("green1", true)->value().toInt();
+      int blue1 = request->getParam("blue1", true)->value().toInt();
+      int red2 = request->getParam("red2", true)->value().toInt();
+      int green2 = request->getParam("green2", true)->value().toInt();
+      int blue2 = request->getParam("blue2", true)->value().toInt();
       
       analogWrite(LED_R1, red1);
       analogWrite(LED_G1, green1);

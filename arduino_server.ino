@@ -3,12 +3,12 @@
 #include <ESPAsyncWebServer.h>
 
 #define BAUDRATE 115200
-#define LED_R1 1
-#define LED_G1 2
-#define LED_B1 3
-#define LED_R2 5
-#define LED_G2 6
-#define LED_B2 7
+#define LED_R1 14
+#define LED_G1 12
+#define LED_B1 13
+#define LED_R2 4
+#define LED_G2 0
+#define LED_B2 2
 
 const char* ssid = "Laboratorium-IoT";
 const char* pass = "IoTL@bolatorium";
@@ -43,8 +43,7 @@ void setup() {
   });
 
   server.on("/rgb", HTTP_POST, [](AsyncWebServerRequest *request) {
-    if (request->hasParam("red1") && request->hasParam("green1") && request->hasParam("blue1") &&
-        request->hasParam("red2") && request->hasParam("green2") && request->hasParam("blue2")) {
+    if (request->hasParam("red1")) {
       int red1 = request->getParam("red1")->value().toInt();
       int green1 = request->getParam("green1")->value().toInt();
       int blue1 = request->getParam("blue1")->value().toInt();
